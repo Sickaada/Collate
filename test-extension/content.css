@@ -1,0 +1,28 @@
+.heading{
+	margin-left: 100px;
+}
+
+body {
+    background-color: rgb(117, 207, 147) ;
+}
+
+#chooselanguages {
+    
+}
+
+.language {
+    margin-left: 60px;
+}
+
+#inputText {
+    height:100px;
+    width: 100%;
+    resize: none;
+    border:2px ;
+}
+#outputText {
+    height:100px;
+    width: 100%;
+    resize: none;
+    border:2px;
+}

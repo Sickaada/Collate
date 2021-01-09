@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
 :root {
-    --editor-bg:url(https://merriam-webster.com/assets/mw/images/article/art-wap-landing-mp-lg/gray-background-7131-96d780fd18d4eaf58a7331d45573204e@1x.jpg);
+    
     --editor-border: #818181;
 }
 /*https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqWwNVhL0i2tr_dVKRoMfBb_8UFggyqolezQ&usqp=CAU*/
@@ -13,30 +13,44 @@
 
 html, body {
     height: 100%;
-    width: 100%;
-    background-image:linear-gradient(rgb(231, 247, 231),rgb(185, 252, 185));
+    width:100%;
+    background-color: #ffffff;
     
-    background-size : 100% ;
+    
+   /* background-size: cover; */
+   
+  
+}
+
+#inputtext {
+height: 100%;
+width: 100%;
 }
 
 
 .top{
-    height: 8%;
+    height: 6%;
     margin-top: 0px auto;
     margin-bottom:0px;
-    background-image:url(https://merriam-webster.com/assets/mw/images/article/art-wap-landing-mp-lg/gray-background-7131-96d780fd18d4eaf58a7331d45573204e@1x.jpg);
+    background-color: #ffffff;
     background-position-x: 10px ;
+    box-shadow: 0 0 12px #e6e6e6;
 }
 .topp{
     margin-left: 42% !important;
 }
 .btn{
     width:95%;
-    background-color: #bce7a9;
-    border:5px #333 !important ;
+    color:#575757;
+    background-color: #ffffff;
+     border-color: #000;
+     border-bottom: #ffffff;
+      border-radius: 1;
+      border-width: 1px;
 }
 .btn:hover{
-    background-color: #82b74b !important;
+    background-color: grey !important;
+    color: #000;
 }
 
 .editor {
@@ -46,17 +60,20 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: #000;
 }
 
 .editor__wrapper {
+    background-color:#ffffff;
+    box-shadow: 0 0 10px #e6e6e6;
     width: 80%;
     height: 90%;
     display: flex;
     flex-direction: column;
-    background: var(--editor-bg);
+   
     padding: 1em;
     border-radius: 4px;
-    border: 2px solid #050505 ;
+     
 }
 
 .editor__body {
@@ -74,7 +91,7 @@ html, body {
 
 .editor__footer--right {
     flex: 1;
-    margin-left: 10px;
+    
     overflow: hidden;
     
     
@@ -82,19 +99,20 @@ html, body {
 #myText{
     height: 4.9em;
     width:100%;
+    resize: none;
 }
 
 .editor__btn {
     border: 0;
     padding: .5em;
-    background-color: #b5e7a0;
-    border: 3px solid #82b74b;
+    background-color: black;
+    border: 3px solid black;
+    color:white;
     border-radius:8px;
-    margin-top: 1.3em;
-    width: 100px;
-    cursor: pointer;
+  background-color: #ff6700 ;
 }
-
+    
+  
 .editor__console {
     background-color: #ffffff;
     width: 100%;
