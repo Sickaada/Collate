@@ -10,11 +10,11 @@ app.use(bodyParser.json())
 
 // receiving code and language from client
 
-app.get('/', (req, res) => {
-    res.send('Hello Mahek!')
+app.post('/', (req, res) => {
+
 
     // For python Language
-    if (req.query.lang === 'python') {
+    if (req.query.lang === 'Python') {
 
         // writing input in a file
         fs.writeFile('./python/input.txt', req.query.input, function (err) {
@@ -41,14 +41,18 @@ app.get('/', (req, res) => {
                         return;
                     }
                     console.log(`stdout: ${stdout}`);
-                    console.log('SUPP homie! It worked fine')
+                    fs.readFile('./python/output.txt', (error, data) => {
+                        res.send(data);
+                    });
+
                 });
 
             }
         }
         )
+
     }
-    else if (req.query.lang === 'cpp') {
+    else if (req.query.lang === 'C++') {
         console.log('it\'s a cpp file')
         fs.writeFile('./cpp/input.txt', req.query.input, function (err) {
             if (err) {
@@ -72,14 +76,17 @@ app.get('/', (req, res) => {
                         return;
                     }
                     console.log(`stdout: ${stdout}`);
+                    fs.readFile('./python/output.txt', (error, data) => {
+                        res.send(data);
+                    });
                 }
                 )
-                console.log("cpp compiled!!")           
+
             }
 
         })
     }
-    else if (req.query.lang === 'java') {
+    else if (req.query.lang === 'Java') {
         console.log('it\'s a java file')
         fs.writeFile('./java/input.txt', req.query.input, function (err) {
             if (err) {
@@ -103,14 +110,20 @@ app.get('/', (req, res) => {
                         return;
                     }
                     console.log(`stdout: ${stdout}`);
+                    fs.readFile('./python/output.txt', (error, data) => {
+                        res.send(data);
+                    });
                 }
                 )
-                console.log("java compiled!!")
+
             }
 
         })
     }
 })
+
+
+
 
 
 

@@ -1,1 +1,1 @@
-hellmadhurd
+Enter first number: Enter second number: The sum of 6 and 8 is 14.0
