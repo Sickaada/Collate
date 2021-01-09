@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 :root {
     
     --editor-border: #818181;
@@ -9,6 +10,11 @@
     padding: 0 ;
     margin: 0;
     box-sizing: border-box;
+}
+h2{
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 10%;
+    font-weight: bold;
 }
 
 html, body {
@@ -25,6 +31,7 @@ html, body {
 #inputtext {
 height: 100%;
 width: 100%;
+overflow-y: scroll;
 }
 
 
@@ -33,23 +40,20 @@ width: 100%;
     margin-top: 0px auto;
     margin-bottom:0px;
     background-color: #ffffff;
-    background-position-x: 10px ;
+    background-position: 10px ;
     box-shadow: 0 0 12px #e6e6e6;
 }
-.topp{
-    margin-left: 42% !important;
-}
+
 .btn{
     width:95%;
     color:#575757;
     background-color: #ffffff;
-     border-color: #000;
-     border-bottom: #ffffff;
+     border-bottom: #ff6700 solid 2.5px;
+     border-right: #ff6700 solid 1px; 
       border-radius: 1;
-      border-width: 1px;
 }
 .btn:hover{
-    background-color: grey !important;
+    background-color: rgb(242,242,242) !important;
     color: #000;
 }
 
@@ -65,7 +69,7 @@ width: 100%;
 
 .editor__wrapper {
     background-color:#ffffff;
-    box-shadow: 0 0 10px #e6e6e6;
+    box-shadow: 0 0 15px #e6e6e6;
     width: 80%;
     height: 90%;
     display: flex;
@@ -85,6 +89,7 @@ width: 100%;
 }
 
 .editor__footer--left {
+    margin-left: 76%;
     display: flex;
     flex-direction: column;
 }
@@ -103,29 +108,34 @@ width: 100%;
 }
 
 .editor__btn {
+    width: 13vh ;
+    margin: 2vh ;
     border: 0;
     padding: .5em;
-    background-color: black;
-    border: 3px solid black;
+    border: #575757;
     color:white;
-    border-radius:8px;
-  background-color: #ff6700 ;
+    border-radius:5px;
+    background-color: #ff6700 ;
 }
     
   
 .editor__console {
-    background-color: #ffffff;
+    background-color: rgb(242,242,242);
     width: 100%;
-    height:40%;
-    margin-top: .9em;
-    border: 0.5px solid #333 ;
+    height:37%;
+    margin-top: .7em;
+    border: 0.5px solid #575757 ;
     overflow: auto;
     border-radius:4px;
 }
-.input {
-    background-color: #ffffff;
+#input{
     width: 100%;
-    height: 40%;
+    resize: none;
+    background-color: rgb(242,242,242);
+}
+.input {
+    width: 100%;
+    height: 37%;
     margin-top: .9em;
     border: 0.5px solid #333 ;
     overflow: auto;

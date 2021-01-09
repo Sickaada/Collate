@@ -8,7 +8,7 @@
      <link rel="stylesheet" href="style.css">
      <title>Code Editor</title> 
      <div class=top>
-     <h1 class="topp">Hackathon</h1>
+     <h2 class="topp">Hackathon</h2>
     </div>
     
  </head>
@@ -28,27 +28,33 @@
                 </tr>
             </table>
             <div class="editor__body">
-                <div id="editorCode" class="editor__code" ></div>
+                <div id="editorCode" class="editor__code" >
+                    <textarea id="inputtext" class="inputtext"></textarea>
+                </div>
             </div>
             <div class="editor__footer">
-                <div class="editor__footer--left">
-                    <button class="editor__btn editor__run">Run</button>
-                    <br>
-                    <button class="editor__btn editor__reset">Reset</button>
-                </div>
+                
                
                 <div class="editor__footer--right">
                     <div class="input">
-                        <input type="text" id="myText" value="" >
-                         
+                        <textarea id="input"></textarea>
                     </div>
                     <div class="editor__console">
                         <ul class="editor__console-logs"></ul>       
                     </div>
                     
+                </div>
+            </div>
+            <br>
+            <div class="editor__footer--left">
+                <table>
+                    <tr>
+                        <td> <button class="editor__btn editor__run" onClick="runinput()">Run</button> </td>
+                        <td><button class="editor__btn editor__reset" onClick="resetinput()">Reset</button></td>
+                    </tr>
+                </table>
             </div>
         </div>
-    </div>
     </div>
         
     
