@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="height: 300px; width: 300px;">
+<html style="height: 200px; width: 300px;">
 <head>
 	<title>
 		Language Detector
@@ -10,27 +10,38 @@
 </head>
 <body>
 	<br><br>
-	<div class="language">
-	<label for="languages" id="chooselanguages">Choose language</label>
-	<select name="languages" id="languages">
-		<option value="cpp"> C ++ </option>
-		<option value="java"> Java 8 </option>
-		<option value="python"> Python </option>
-	</select>
-</div>
+	<span>
+	
+		<label for="languages" id="chooselanguages"></label>
+			<select name="languages" id="languages">
+				<option value="sellang">Select Language</option>
+				<option value="cpp"> C ++ </option>
+				<option value="java"> Java 8 </option>
+				<option value="python"> Python </option>
+			</select>
+	
+	<button type="button" id="editButton">Edit</button>
+	</span>
+	<br><br>
 	<div class = "inputText">
-	<textarea id = "inputText" name="inputText">HELLO</textarea>
+			<textarea id = "inputText" name="inputText"></textarea>
 	</div>
 	<br>
 	<!-- <div class = "submitButton"> -->
-		<button id="runButton">Run</button>
+	<div class="btn_centre" id="btn_centre">	
+		<button type="button" id="runButton" >Run</button>
+	</div>
 		
 	<!-- </div> -->
 	<br>
 	<div class = "outputText">
-		<textarea name = "outputText" id = "outputText">HELLO</textarea>
-		<button id="resetButton">Reset</button>
+		<textarea name = "outputText" id = "outputText"></textarea>
+	</div>
+	<br>
+	<div class="btn_centre" id="btn_centre">
+		<button type="button" id="resetButton">Reset</button>
+	</div>
 	<br><br>
-
+	
 </body>
 </html>

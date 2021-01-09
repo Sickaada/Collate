@@ -1,17 +1,33 @@
 .heading{
+    color: rgb(16, 17, 17) ;
 	margin-left: 100px;
 }
 
 body {
-    background-color: rgb(117, 207, 147) ;
+    background-color: white;
 }
 
-#chooselanguages {
-    
+#languages {
+    background-color: #ff6700;
+    color:white;
+    border:1px #ff6700;
+    border-radius: 4px;
+    height: 2em;
+    width: 9em;
 }
 
 .language {
-    margin-left: 60px;
+    margin-left: 0px;
+}
+
+.languages{
+    background-color: beige;
+
+}
+.inputText{
+    box-shadow: 0 0 10px #e6e6e6;
+    background-color: #f2f2f2;
+    
 }
 
 #inputText {
@@ -19,10 +35,54 @@ body {
     width: 100%;
     resize: none;
     border:2px ;
+    border-radius: 3px;
+    
 }
+#resetButton{
+    background-color: #ff6700;
+    color: #ffffff;
+    border:1px #ff6700;
+    height: 2em;
+    width: 5em;
+    border-radius:4px;
+}
+
+#runButton{
+    background-color: #ff6700;
+    color: #ffffff;
+    border:1px #ff6700;
+    border-radius: 4px;
+    height: 2em;
+    width: 5em;
+}
+
+#editButton{
+    
+    background-color: #ff6700;
+    color: #ffffff;
+    border:1px #ff6700;
+    height: 2em;
+    width: 5em;  
+    border-radius: 4px;  
+    float: right;
+}
+
+.btn_centre{
+    margin-left:120px ;
+    
+}
+
+.outputText{
+    box-shadow: 0 0 10px #e6e6e6;
+    background-color: rgb(242,242,242);
+}
+
 #outputText {
     height:100px;
     width: 100%;
     resize: none;
     border:2px;
+    border-radius: 3px;
 }
+
+

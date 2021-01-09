@@ -1,7 +1,18 @@
 window.onload=function(){
-    document.getElementById("submitButton").addEventListener("click", myFunc);
+	
+	document.getElementById("resetButton").addEventListener("click", resetButton);
 }
 
+
+function runButton(){
+	
+}
+
+function resetButton(){
+	console.log("hi");
+	document.getElementById("inputText").value = "";
+	document.getElementById("outputText").value = "";
+}
 
 function myFunc()
 {
