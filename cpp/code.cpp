@@ -1,2 +1,10 @@
-#include <iostream>
-using namespace std;int main() {int x;cout << "Type a number: "; cin >> x; cout << "Your number is: " << x;return 0;}
+#include<iostream>
+using namespace std;
+ 
+int main()
+{
+	int n;
+	cin>>n;
+	cout<<((n>2&&n%2==0)?"YES":"NO");
+	return 0;
+}
