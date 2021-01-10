@@ -4,12 +4,12 @@
   Install Docker on your machine
 
   ## Setting up server
-  Run following commands
-    1. docker pull python
-    2. docker pull gcc
-    3. docker pull openjdk
-    4. npm install
-    5. npm run watch
+    Run following commands
+      1. docker pull python
+      2. docker pull gcc
+      3. docker pull openjdk
+      4. npm install
+      5. npm run watch
     
   ## Setting up chrome extension
     1. Navigate to chrome://extensions/
