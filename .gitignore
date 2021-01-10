@@ -1,0 +1,10 @@
+node_modules/
+.DS_Store
+./python/input.txt
+./python/output.txt
+./cpp/input.txt
+./cpp/output.txt
+./java/input.txt
+./java/output.txt
+./cpp/binary
+./java/Main.class

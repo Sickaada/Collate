@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+:root {
+  --editor-border: #818181;
+}
+/*https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqWwNVhL0i2tr_dVKRoMfBb_8UFggyqolezQ&usqp=CAU*/
+/* Reset Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+h2 {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 10%;
+  font-weight: bold;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+
+  /* background-size: cover; */
+}
+
+#inputtext {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.top {
+  height: 6%;
+  margin-top: 0px auto;
+  margin-bottom: 0px;
+  background-color: #ffffff;
+  background-position: 10px;
+  box-shadow: 0 0 12px #e6e6e6;
+}
+
+.btn {
+  width: 95%;
+  color: #575757;
+  background-color: #ffffff;
+  border-bottom: #ff6700 solid 2.5px;
+  border-right: #ff6700 solid 1px;
+  border-radius: 1;
+}
+.btn:hover {
+  background-color: rgb(242, 242, 242) !important;
+  color: #000;
+}
+
+.editor {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: #000;
+}
+
+.editor__wrapper {
+  background-color: #ffffff;
+  box-shadow: 0 0 15px #e6e6e6;
+  width: 80%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+
+  padding: 1em;
+  border-radius: 4px;
+}
+#outputtext {
+  width: 100%;
+}
+
+.editor__body {
+  flex: 1;
+}
+
+.editor__footer {
+  display: flex;
+}
+
+.editor__footer--left {
+  margin-left: 76%;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor__footer--right {
+  flex: 1;
+
+  overflow: hidden;
+}
+#myText {
+  height: 4.9em;
+  width: 100%;
+  resize: none;
+}
+
+.editor__btn {
+  width: 13vh;
+  margin: 2vh;
+  border: 0;
+  padding: 0.5em;
+  border: #575757;
+  color: white;
+  border-radius: 5px;
+  background-color: #ff6700;
+}
+
+.editor__console {
+  background-color: rgb(242, 242, 242);
+  width: 100%;
+  height: 37%;
+  margin-top: 0.7em;
+  border: 0.5px solid #575757;
+  overflow: auto;
+  border-radius: 4px;
+}
+#input {
+  width: 100%;
+  resize: none;
+  border: rgb(242, 242, 242);
+  background-color: rgb(242, 242, 242);
+  height: 100%;
+}
+
+.input {
+  width: 100%;
+  height: 37%;
+  margin-top: 0.9em;
+  border: 0.5px solid #333;
+  overflow: auto;
+  border-radius: 4px;
+}
+
+.editor__code {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 0.5px solid #333;
+}
+.editor__console-logs {
+  padding: 10px;
+  list-style: none;
+  background-color: rgb(242, 242, 242);
+}
+
+.editor__console-logs li pre {
+  font-size: 0.9em;
+  font-family: Inconsolata, sans-serif;
+}
+
+.ace_gutter {
+  border-left: 3px solid var(--editor-border);
+}
+
+.log--default {
+  color: #000;
+}
+
+.log--string {
+  color: #32382f;
+}
+
+.log--number {
+  color: #373d34;
+}
+
+.log--boolean {
+  color: rgb(226, 63, 13);
+}
+
+.log--undefined {
+  color: grey;
+}
+
+.log--error {
+  color: red;
+}
+
+.log--object {
+  color: darkcyan;
+}
+
+.log--array {
+  color: darkblue;
+}
+
+.log--function {
+  color: yellow;
+}
