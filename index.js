@@ -52,7 +52,7 @@ app.post('/', (req, res) => {
         )
 
     }
-    else if (req.query.lang === 'C++') {
+    else if (req.query.lang === 'Cpp') {
         console.log('it\'s a cpp file')
         fs.writeFile('./cpp/input.txt', req.query.input, function (err) {
             if (err) {

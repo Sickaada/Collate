@@ -2,7 +2,7 @@ window.onload = function () {
     var a = localStorage.getItem("lang");
     document.getElementById("inputtext").value = localStorage.getItem("code");
     if (a === 'Python') { pythonClick() }
-    else if (a === 'C++') { cppClick() }
+    // else if (a === 'C++') { cppClick() }
     else if (a === "Java") { javaClick() }
     document.getElementById("pythonButton").addEventListener("click", pythonClick);
 
@@ -62,7 +62,6 @@ function setvalue() {
     localStorage.setItem("code", document.getElementById('inputtext').value)
     localStorage.setItem('input', document.getElementById('input').value)
     var data = JSON.stringify({ "code": localStorage.getItem("code") });
-    console.log(data)
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -73,8 +72,10 @@ function setvalue() {
             console.log(this.responseText)
         }
     });
-
-
+    console.log("this is the selected language")
+    if (localStorage.getItem('lang') === 'C++') {
+        localStorage.setItem('lang', 'Cpp')
+    }
 
     xhr.open("POST", "http://localhost:4000/?lang=" + localStorage.getItem("lang") + "&input=" + encodeURIComponent(localStorage.getItem("input")));
     xhr.setRequestHeader("Content-Type", "application/json");

@@ -10,6 +10,7 @@ function setvalue() {
 	localStorage.setItem("input", document.getElementById('inputText').value)
 	localStorage.setItem("lang", document.getElementById("languages").value);
 	var data = JSON.stringify({ "code": localStorage.getItem("code") });
+	console.log(data)
 
 	var xhr = new XMLHttpRequest();
 	xhr.withCredentials = true;
@@ -22,6 +23,7 @@ function setvalue() {
 
 
 	xhr.open("POST", "http://localhost:4000/?lang=" + localStorage.getItem("lang") + "&input=" + encodeURIComponent(localStorage.getItem("input")));
+	console.log(encodeURIComponent(localStorage.getItem("input")))
 	xhr.setRequestHeader("Content-Type", "application/json");
 
 	xhr.send(data);
