@@ -1,3 +1,3 @@
-a = input() # this is a string
-
-print(a)
+a = input()
+b = input()
+print(a+b)

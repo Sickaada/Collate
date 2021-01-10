@@ -1,6 +1,11 @@
 window.onload = function () {
+    var a = localStorage.getItem("lang");
     document.getElementById("inputtext").value = localStorage.getItem("code");
+    if (a === 'Python') { pythonClick() }
+    else if (a === 'C++') { cppClick() }
+    else if (a === "Java") { javaClick() }
     document.getElementById("pythonButton").addEventListener("click", pythonClick);
+
     document.getElementById("cppButton").addEventListener("click", cppClick);
     document.getElementById("javaButton").addEventListener("click", javaClick);
     document.getElementById("resetButton").addEventListener("click", resetinput);

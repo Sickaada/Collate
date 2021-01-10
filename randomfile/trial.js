@@ -8,7 +8,7 @@ document.addEventListener("keydown", (e) => {
         if (window.getSelection) {
             selectedText = window.getSelection().toString();
         }
-        alert(selectedText);
+        alert("Your code has been copied! Run through the extension and put input if necessary!!");
 
         chrome.runtime.sendMessage({ greeting: selectedText });
     }
