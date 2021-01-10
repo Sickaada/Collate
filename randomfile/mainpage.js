@@ -1,4 +1,11 @@
-
+window.onload = function() {
+    document.getElementById("inputtext").value = localStorage.getItem("code");
+    document.getElementById("pythonButton").addEventListener("click", pythonClick);
+    document.getElementById("cppButton").addEventListener("click", cppClick);
+    document.getElementById("javaButton").addEventListener("click", javaClick);
+    document.getElementById("resetButton").addEventListener("click", resetinput);
+    document.getElementById("runButton").addEventListener("click", setvalue);
+}
 
 function acceptinput(){
    var input= document.getElementById("inputtext").text;
@@ -6,13 +13,13 @@ function acceptinput(){
 }
 
 function resetinput(){
-
     document.getElementById("inputtext").value = "" ;
 }
 
 
 
 function pythonClick(){
+    console.log("py");
     document.getElementById("cppButton").style.backgroundColor = "#ffffff";
     document.getElementById("pythonButton").style.backgroundColor = "#ff6700" ; 
     document.getElementById("javaButton").style.backgroundColor = "#ffffff";
@@ -43,12 +50,23 @@ function javaClick(){
     document.getElementById("javaButton").style.color = "#ffffff";
 }
 
-resetCodeBtn.addEventListener('click', () => {
-    // Clear ace editor
-    codeEditor.setValue(defaultCode);
+function setvalue() {
+	localStorage.setItem("input", document.getElementById('inputText').value)
+	var data = JSON.stringify({ "code": localStorage.getItem("code") });
 
-    // Clear console messages
-    editorLib.clearConsoleScreen();
-})
+	var xhr = new XMLHttpRequest();
+	xhr.withCredentials = true;
 
-editorLib.init();
+	xhr.addEventListener("readystatechange", function () {
+		if (this.readyState === 4) {
+			console.log(this.responseText);
+		}
+	});
+
+
+	xhr.open("POST", "http://localhost:4000/?lang=" + localStorage.getItem("lang") + "&input=" + encodeURIComponent(localStorage.getItem("input")));
+	xhr.setRequestHeader("Content-Type", "application/json");
+
+	xhr.send(data);
+
+}

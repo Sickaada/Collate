@@ -4,44 +4,48 @@
 	<title>
 		Language Detector
 	</title>
-	<script src="content.js"></script>
 	<link rel="stylesheet" href="content.css">
-	<div class="heading">HACKATHON</div>
+	<script src="content.js"></script>
 </head>
 <body>
+
 	<br><br>
 	<span>
 	
-		<label for="languages" id="chooselanguages"></label>
+		<label for="languages" class="chooselanguages"></label>
 			<select name="languages" id="languages">
 				<option value="sellang">Select Language</option>
-				<option value="cpp"> C ++ </option>
-				<option value="java"> Java 8 </option>
-				<option value="python"> Python </option>
+				<option value="C++"> C++ </option>
+				<option value="Java"> Java 8 </option>
+				<option value="Python"> Python </option>
 			</select>
 	
 	<button type="button" id="editButton">Edit</button>
 	</span>
+
+
+
 	<br><br>
 	<div class = "inputText">
-			<textarea id = "inputText" name="inputText"></textarea>
+	<textarea id = "inputText" name="inputText" placeholder="Enter your input here"></textarea>
 	</div>
 	<br>
-	<!-- <div class = "submitButton"> -->
+
 	<div class="btn_centre" id="btn_centre">	
-		<button type="button" id="runButton" >Run</button>
+		<button type="button" id="submitButton" >Run</button>
 	</div>
-		
-	<!-- </div> -->
+	
 	<br>
 	<div class = "outputText">
-		<textarea name = "outputText" id = "outputText"></textarea>
+		<textarea name = "outputText" id = "outputText" placeholder="Output will appear here"></textarea>
 	</div>
 	<br>
+
 	<div class="btn_centre" id="btn_centre">
 		<button type="button" id="resetButton">Reset</button>
 	</div>
 	<br><br>
 	
+
 </body>
 </html>

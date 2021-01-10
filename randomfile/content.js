@@ -2,11 +2,13 @@ window.onload = function () {
 
 	chrome.runtime.sendMessage({ fetch: "fetching" });
 	document.getElementById('submitButton').addEventListener("click", setvalue)
+	document.getElementById('editButton').addEventListener("click", redirectToEditor)
 
 }
 
 function setvalue() {
 	localStorage.setItem("input", document.getElementById('inputText').value)
+	localStorage.setItem("lang", document.getElementById("languages").value);
 	var data = JSON.stringify({ "code": localStorage.getItem("code") });
 
 	var xhr = new XMLHttpRequest();
@@ -14,7 +16,7 @@ function setvalue() {
 
 	xhr.addEventListener("readystatechange", function () {
 		if (this.readyState === 4) {
-			console.log(this.responseText);
+			document.getElementById("outputText").value = this.responseText;
 		}
 	});
 
@@ -25,4 +27,10 @@ function setvalue() {
 	xhr.send(data);
 
 }
+
+function redirectToEditor() {
+	chrome.tabs.create({url : "mainpage.html"}, function(tab){alert(tab.id)});
+}
+
+
 

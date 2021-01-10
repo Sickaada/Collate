@@ -10,6 +10,7 @@ chrome.runtime.onMessage.addListener(
 			"from the extension");
 		// code fetched from trial.js
 		if (request.greeting) {
+			console.log(request.greeting);
 			code = request.greeting
 			var result = Detect(request.greeting);
 			lastLanguage = result;
@@ -24,6 +25,7 @@ chrome.runtime.onMessage.addListener(
 				type: "popup"
 			});
 			console.log(views.length);
+			console.log(lastLanguage);
 			for (i = 0; i < views.length; i++) {
 				// views[i].document.getElementById("outputText").innerHTML = lastLanguage;
 				views[i].document.getElementById("languages").value = lastLanguage;
