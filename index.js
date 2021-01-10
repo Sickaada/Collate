@@ -76,7 +76,7 @@ app.post('/', (req, res) => {
                         return;
                     }
                     console.log(`stdout: ${stdout}`);
-                    fs.readFile('./python/output.txt', (error, data) => {
+                    fs.readFile('./cpp/output.txt', (error, data) => {
                         res.send(data);
                     });
                 }
@@ -110,7 +110,7 @@ app.post('/', (req, res) => {
                         return;
                     }
                     console.log(`stdout: ${stdout}`);
-                    fs.readFile('./python/output.txt', (error, data) => {
+                    fs.readFile('./java/output.txt', (error, data) => {
                         res.send(data);
                     });
                 }

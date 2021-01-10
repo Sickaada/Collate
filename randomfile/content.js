@@ -29,7 +29,7 @@ function setvalue() {
 }
 
 function redirectToEditor() {
-	chrome.tabs.create({url : "mainpage.html"}, function(tab){alert(tab.id)});
+	chrome.tabs.create({ url: "mainpage.html" }, function (tab) { alert(tab.id) });
 }
 
 

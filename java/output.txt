@@ -1,2 +1,1 @@
-Enter username
-Username is: yatin
+Hello randomWorld!
