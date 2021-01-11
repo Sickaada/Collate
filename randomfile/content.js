@@ -3,7 +3,11 @@ window.onload = function () {
 	chrome.runtime.sendMessage({ fetch: "fetching" });
 	document.getElementById('submitButton').addEventListener("click", setvalue)
 	document.getElementById('editButton').addEventListener("click", redirectToEditor)
+	document.getElementById('resetButton').addEventListener("click", reset)
 
+}
+function reset() {
+	document.getElementById('inputText').value = ""
 }
 
 function setvalue() {
@@ -20,6 +24,10 @@ function setvalue() {
 			document.getElementById("outputText").value = this.responseText;
 		}
 	});
+	if (localStorage.getItem('lang') === 'C++') {
+		localStorage.setItem('lang', 'Cpp')
+		console.log(localStorage.getItem('lang'))
+	}
 
 
 	xhr.open("POST", "http://localhost:4000/?lang=" + localStorage.getItem("lang") + "&input=" + encodeURIComponent(localStorage.getItem("input")));
