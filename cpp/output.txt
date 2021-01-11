@@ -1,1 +1,1 @@
-YES
+Enter two integers: 21 + 2 = 19

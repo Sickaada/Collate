@@ -69,12 +69,13 @@ function setvalue() {
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
             document.getElementById('outputtext').value = this.responseText;
-            console.log(this.responseText)
+            
         }
     });
     console.log("this is the selected language")
     if (localStorage.getItem('lang') === 'C++') {
         localStorage.setItem('lang', 'Cpp')
+        console.log(localStorage.getItem('lang'))
     }
 
     xhr.open("POST", "http://localhost:4000/?lang=" + localStorage.getItem("lang") + "&input=" + encodeURIComponent(localStorage.getItem("input")));
