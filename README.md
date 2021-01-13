@@ -26,6 +26,6 @@ Install Docker on your machine
 
 ## Select the code snipper you want to run and press "Ctrl/Cmd + B"
 
-## You are good to go my friend!
+### You are good to go my friend!
 
-## P.S. Give me a name please!
+### P.S. Give me a name please!
