@@ -29,7 +29,7 @@ app.post('/', (req, res) => {
                 console.log('There is some error in writing the file')
             }
             else {
-                exec("./python/pythonDocker.sh", (error, stdout, stderr) => {
+                exec("docker run --volume=/Users/madhur/Desktop/projects/syntaxError/python:/usr/src/app pythonimage /bin/bash -c \"cd /usr/src/app && cat input.txt | python3 code.py > output.txt\"", (error, stdout, stderr) => {
                     if (error) {
                         console.log(`error: ${error.message}`);
                         return;
@@ -66,7 +66,7 @@ app.post('/', (req, res) => {
             }
             else {
                 console.log('SUPP homie! It worked fine')
-                exec("./cpp/cppDocker.sh", (error, stdout, stderr) => {
+                exec("docker run --volume=/Users/madhur/Desktop/projects/syntaxError/cpp:/usr/src/app cppimage /bin/bash -c \"cd /usr/src/app && g++ -std=c++14 -o binary code.cpp && cat input.txt | ./binary > output.txt\"", (error, stdout, stderr) => {
                     if (error) {
                         console.log(`error: ${error.message}`);
                         return;
@@ -100,7 +100,7 @@ app.post('/', (req, res) => {
             }
             else {
                 console.log('SUPP homie! It worked fine')
-                exec("./java/javaDocker.sh", (error, stdout, stderr) => {
+                exec("docker run --volume=/Users/madhur/Desktop/projects/syntaxError/java:/usr/src/app javaimage /bin/bash -c \"cd /usr/src/app && javac Main.java && cat input.txt | java Main > output.txt\"", (error, stdout, stderr) => {
                     if (error) {
                         console.log(`error: ${error.message}`);
                         return;
@@ -133,3 +133,10 @@ app.post('/', (req, res) => {
 app.listen(4000, () =>
     console.log(' server is listening on port 4000!'),
 );
+
+
+
+
+
+
+
