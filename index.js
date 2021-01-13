@@ -65,7 +65,7 @@ app.post('/', (req, res) => {
                 console.log('There is some error in writing the file')
             }
             else {
-                console.log('SUPP homie! It worked fine')
+
                 exec("docker run --volume=/Users/madhur/Desktop/projects/syntaxError/cpp:/usr/src/app cppimage /bin/bash -c \"cd /usr/src/app && g++ -std=c++14 -o binary code.cpp && cat input.txt | ./binary > output.txt\"", (error, stdout, stderr) => {
                     if (error) {
                         console.log(`error: ${error.message}`);
@@ -99,7 +99,7 @@ app.post('/', (req, res) => {
                 console.log('There is some error in writing the file')
             }
             else {
-                console.log('SUPP homie! It worked fine')
+
                 exec("docker run --volume=/Users/madhur/Desktop/projects/syntaxError/java:/usr/src/app javaimage /bin/bash -c \"cd /usr/src/app && javac Main.java && cat input.txt | java Main > output.txt\"", (error, stdout, stderr) => {
                     if (error) {
                         console.log(`error: ${error.message}`);
