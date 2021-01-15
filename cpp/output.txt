@@ -1,1 +1,1 @@
-Hello World!
+Enter two integers: 95 + 8 = 103

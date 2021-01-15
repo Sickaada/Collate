@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 .heading {
   margin-left: 100px;
   color: rgb(16, 17, 17);
 }
-
+h1 {
+  color: #ff6700;
+  font-family: 'Satisfy', cursive;
+}
 body {
   background-color: white;
 }
@@ -38,6 +42,7 @@ body {
   height: 2em;
   width: 5em;
   border-radius:4px;
+  
 }
 
 #submitButton{
@@ -47,6 +52,7 @@ body {
   border-radius: 4px;
   height: 2em;
   width: 5em;
+  
 }
 
 #editButton{

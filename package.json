@@ -3,14 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "nodemonConfig":{
-      "delay":10
-      
+  "nodemonConfig": {
+    "delay": 10
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch":"nodemon"
-    
+    "watch": "nodemon"
   },
   "keywords": [],
   "author": "",
