@@ -22,10 +22,10 @@ Install Docker on your machine
     1. Navigate to chrome://extensions/
     2. Turn on Developer mode
     3. Go to " Load Unpacked "
-    4. Browse to ./randomfile
+    4. Browse to ./frontend
 
-## Select the code snipper you want to run and press "Ctrl/Cmd + B"
+## Select the code snippet you want to run and press "Ctrl/Cmd + B"
 
 ### You are good to go my friend!
 
-### P.S. Give me a name please!
+### ~P.S. Give me a name please!~ It is Collate.
