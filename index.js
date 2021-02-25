@@ -3,12 +3,36 @@ const cors = require('cors')
 const fs = require('fs')
 const { exec } = require('child_process')
 var bodyParser = require('body-parser')
+const os = require('os');
 
 const app = express();
 app.use(cors())
 app.use(bodyParser.json())
+var Docker = require('dockerode');
+const { Volume, Container } = require('dockerode')
 
-// receiving code and language from client
+var docker = new Docker({
+    socketPath: '/var/run/docker.sock'
+});
+
+
+
+docker.pull('python:latest', function (err, stream) {
+    //console.log(stream)
+});
+
+// docker.run('python', ['bash','-c','cd var && python code.py'], process.stdout, {
+//     name: 'python_container', HostConfig: {
+//         AutoRemove: true, NetworkMode: 'bridge', Binds: [
+//             `/Users/madhur/Desktop/projects/untf/collate/python:/var/`
+//         ]
+//     }
+// }, function (err, data, container) {
+//     console.log(err) 
+// });
+
+
+
 
 app.post('/', (req, res) => {
 
@@ -29,25 +53,19 @@ app.post('/', (req, res) => {
                 console.log('There is some error in writing the file')
             }
             else {
-                exec("docker run --volume=/Users/sweetygupta/Desktop/SyntaxError/python:/usr/src/app pythonimage /bin/bash -c \"cd /usr/src/app && cat input.txt | python3 code.py > output.txt\"", (error, stdout, stderr) => {
-                   
-                    if (error) {
-                        console.log(`error: ${error.message}`);
-                        return;
+                docker.run('python', ['bash', '-c', 'cd var && cat input.txt | python code.py > output.txt'], process.stdout, {
+                    name: 'python_container', HostConfig: {
+                        AutoRemove: true, NetworkMode: 'bridge', Binds: [
+                            `/Users/madhur/Desktop/projects/untf/collate/python:/var/`
+                        ]
                     }
-                    console.log("Python")
-                    if (stderr) {
-                        console.log(`stderr: ${stderr}`);
-
-                        return;
-                    }
-                    console.log(`stdout: ${stdout}`);
-                    fs.readFile('./python/output.txt', (error, data) => {
-                        res.send(data);
-                    });
+                }, function (err, data, container) {
+                    console.log(err)
 
                 });
-
+                fs.readFile('./python/output.txt',(error,data)=>{
+                    res.send(data);
+                })
             }
         }
         )
@@ -66,8 +84,8 @@ app.post('/', (req, res) => {
                 console.log('There is some error in writing the file')
             }
             else {
-
-                exec("docker run --volume=/Users/sweetygupta/Desktop/SyntaxError/cpp:/usr/src/app cppimage /bin/bash -c \"cd /usr/src/app && g++ -std=c++14 -o binary code.cpp && cat input.txt | ./binary > output.txt\"", (error, stdout, stderr) => {
+                console.log('ss')
+                exec("docker run -v \"$PWD\":/usr/src/myapp -w /usr/src/myapp gcc:4.9 /bin/bash -c \"cd cpp && g++ -std=c++14 -o binary code.cpp && cat input.txt | ./binary > output.txt\"", (error, stdout, stderr) => {
                     if (error) {
                         console.log(`error: ${error.message}`);
                         return;
@@ -101,7 +119,7 @@ app.post('/', (req, res) => {
             }
             else {
 
-                exec("docker run --volume=/Users/sweetygupta/Desktop/SyntaxError/java:/usr/src/app javaimage /bin/bash -c \"cd /usr/src/app && javac Main.java && cat input.txt | java Main > output.txt\"", (error, stdout, stderr) => {
+                exec("docker run docker run -v \"$PWD\":/usr/src/myapp -w /usr/src/myapp javasdk /bin/bash -c \"cd java && javac Main.java && cat input.txt | java Main > output.txt\"", (error, stdout, stderr) => {
                     if (error) {
                         console.log(`error: ${error.message}`);
                         return;
