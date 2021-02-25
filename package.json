@@ -16,7 +16,10 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dockerode": "^3.2.1",
     "express": "^4.17.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "nvm": "0.0.4",
+    "os": "^0.1.1"
   }
 }
