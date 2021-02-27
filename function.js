@@ -1,32 +1,31 @@
-const express = require('express')
-const cors = require('cors')
-const fs = require('fs')
-const { exec } = require('child_process')
-var bodyParser = require('body-parser')
+const express  = require('express')
 const fs = require('fs')
 const app = express()
-app.use(cors())
-app.use(bodyParser.json())
 
 
-
-
-function myfunc(lang,){
-    fs.writeFile(`./${lang}/input.txt`,req.query.input,function(err){
-        if (err){
+ function common(lang, img_name, run_cmd) {
+    fs.writeFile(`./${lang}/input.txt`, req.query.input, function (err) {
+        if (err) {
             res.status(500)
         }
     })
-    fs.writeFile(`./${lang}/code.py`,req.body.code, function(err){
-        if (err){
+    fs.writeFile(`./${lang}/code.py`, req.body.code, function (err) {
+        if (err) {
             res.status(500)
         }
         else {
-            exec("docker run --volume=/Users/madhur/Desktop/projects/untitled folder/Collate:/usr/src/app pythonimage /bin/bash -c \"cd /usr/src/app && cat input.txt | python3 code.py > output.txt\"", (error, stdout, stderr) => {
-                   
-                if (error) {
-                    console.log(`error: ${error.message}`);
-                    return;
+            docker.run(img_name, run_cmd, process.stdout, {
+                name: 'image_container', HostConfig: {
+                    AutoRemove: true, NetworkMode: 'bridge', Binds: [
+                        `${__dirname}/${lang}/:/var/`
+                    ]
                 }
+            }, function (err, data, container) {
+                console.log(err)
+
+            });
+
         }
-    })}
+    })
+};
+module.exports={common};

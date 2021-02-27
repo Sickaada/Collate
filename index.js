@@ -1,10 +1,11 @@
+
 const express = require('express')
 const cors = require('cors')
 const fs = require('fs')
 const { exec } = require('child_process')
 var bodyParser = require('body-parser')
-const os = require('os');
 
+const myfunc = require('./function.js')
 const app = express();
 app.use(cors())
 app.use(bodyParser.json())
@@ -21,15 +22,7 @@ docker.pull('python:latest', function (err, stream) {
     //console.log(stream)
 });
 
-// docker.run('python', ['bash','-c','cd var && python code.py'], process.stdout, {
-//     name: 'python_container', HostConfig: {
-//         AutoRemove: true, NetworkMode: 'bridge', Binds: [
-//             `/Users/madhur/Desktop/projects/untf/collate/python:/var/`
-//         ]
-//     }
-// }, function (err, data, container) {
-//     console.log(err) 
-// });
+
 
 
 
@@ -41,34 +34,38 @@ app.post('/', (req, res) => {
     if (req.query.lang === 'Python') {
 
         // writing input in a file
-        fs.writeFile('./python/input.txt', req.query.input, function (err) {
-            if (err) {
-                console.log("There is some error in creating input file")
-            }
+        // fs.writeFile('./python/input.txt', req.query.input, function (err) {
+        //     if (err) {
+        //         console.log("There is some error in creating input file")
+        //     }
+        // })
+
+        // // writing code in a file 
+        // fs.writeFile('./python/code.py', req.body.code, function (err) {
+        //     if (err) {
+        //         console.log('There is some error in writing the file')
+        //     }
+        //     else {
+        //         docker.run('python', ['bash', '-c', 'cd var && cat input.txt | python code.py > output.txt 2>&1'], process.stdout, {
+        //             name: 'python_container', HostConfig: {
+        //                 AutoRemove: true, NetworkMode: 'bridge', Binds: [
+        //                     `${__dirname}/python/:/var/`
+        //                 ]
+        //             }
+        //         }, function (err, data, container) {
+        //             console.log(err)
+
+        //         });
+        //         fs.readFile('./python/output.txt', (error, data) => {
+        //             res.send(data);
+        //         })
+        //     }
+        // }
+        // )
+        myfunc.common('python', 'python:latest', "['bash', '-c', 'cd var && cat input.txt | python code.py > output.txt 2>&1']")
+        fs.readFile('./python/output.txt', (error, data) => {
+            res.send(data);
         })
-
-        // writing code in a file 
-        fs.writeFile('./python/code.py', req.body.code, function (err) {
-            if (err) {
-                console.log('There is some error in writing the file')
-            }
-            else {
-                docker.run('python', ['bash', '-c', 'cd var && cat input.txt | python code.py > output.txt'], process.stdout, {
-                    name: 'python_container', HostConfig: {
-                        AutoRemove: true, NetworkMode: 'bridge', Binds: [
-                            `/Users/madhur/Desktop/projects/untf/collate/python:/var/`
-                        ]
-                    }
-                }, function (err, data, container) {
-                    console.log(err)
-
-                });
-                fs.readFile('./python/output.txt',(error,data)=>{
-                    res.send(data);
-                })
-            }
-        }
-        )
 
     }
     else if (req.query.lang === 'Cpp') {
