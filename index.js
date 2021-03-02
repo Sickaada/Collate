@@ -1,10 +1,10 @@
+
 const express = require('express')
 const cors = require('cors')
 const fs = require('fs')
 const { exec } = require('child_process')
 var bodyParser = require('body-parser')
-const os = require('os');
-
+const myfunc = require('./function.js')
 const app = express();
 app.use(cors())
 app.use(bodyParser.json())
@@ -17,19 +17,20 @@ var docker = new Docker({
 
 
 
-docker.pull('python:latest', function (err, stream) {
-    //console.log(stream)
-});
+// ## PUT THEM IN DIFFERENT FILE. PULL RATE LIMIT IS REACHED.
 
-// docker.run('python', ['bash','-c','cd var && python code.py'], process.stdout, {
-//     name: 'python_container', HostConfig: {
-//         AutoRemove: true, NetworkMode: 'bridge', Binds: [
-//             `/Users/madhur/Desktop/projects/untf/collate/python:/var/`
-//         ]
-//     }
-// }, function (err, data, container) {
-//     console.log(err) 
+// docker.pull('python:latest', function (err, stream) {
+//     //console.log(stream)
 // });
+// docker.pull('gcc:4.9', function (err, stream) {
+//     //console.log(stream)
+// })
+// docker.pull('openjdk:latest', function (err, stream) {
+//     console.log(err)
+//     con
+// })
+
+
 
 
 
@@ -40,39 +41,41 @@ app.post('/', (req, res) => {
     // For python Language
     if (req.query.lang === 'Python') {
 
-        // writing input in a file
         fs.writeFile('./python/input.txt', req.query.input, function (err) {
             if (err) {
                 console.log("There is some error in creating input file")
             }
         })
-
-        // writing code in a file 
         fs.writeFile('./python/code.py', req.body.code, function (err) {
             if (err) {
                 console.log('There is some error in writing the file')
             }
             else {
-                docker.run('python', ['bash', '-c', 'cd var && cat input.txt | python code.py > output.txt'], process.stdout, {
+                docker.run('python', ['bash', '-c', 'cd var && cat input.txt | python code.py > output.txt 2>&1'], process.stdout, {
                     name: 'python_container', HostConfig: {
                         AutoRemove: true, NetworkMode: 'bridge', Binds: [
-                            `/Users/madhur/Desktop/projects/untf/collate/python:/var/`
+                            `${__dirname}/python/:/var/`
                         ]
                     }
-                }, function (err, data, container) {
-                    console.log(err)
-
-                });
-                fs.readFile('./python/output.txt',(error,data)=>{
-                    res.send(data);
                 })
+                .then(function (data, err) {
+                    //console.log(err)
+                    fs.readFile('./python/output.txt', (error, data) => {
+                        res.send(data);
+                    })
+
+                })
+
             }
         }
         )
+        // myfunc.common('Python', 'python', "['bash', '-c', 'cd var && cat input.txt | python code.py > output.txt 2>&1']", req.query.input, req.body.code)
+        // fs.readFile('./Python/output.txt', (error, data) => {
+        //     res.send(data);
+        //})
 
     }
     else if (req.query.lang === 'Cpp') {
-        console.log('it\'s a cpp file')
         fs.writeFile('./cpp/input.txt', req.query.input, function (err) {
             if (err) {
                 console.log("There is some error in input file")
@@ -84,29 +87,27 @@ app.post('/', (req, res) => {
                 console.log('There is some error in writing the file')
             }
             else {
-                console.log('ss')
-                exec("docker run -v \"$PWD\":/usr/src/myapp -w /usr/src/myapp gcc:4.9 /bin/bash -c \"cd cpp && g++ -std=c++14 -o binary code.cpp && cat input.txt | ./binary > output.txt\"", (error, stdout, stderr) => {
-                    if (error) {
-                        console.log(`error: ${error.message}`);
-                        return;
+                docker.run('gcc:4.9', ['bash', '-c', 'cd var && g++ -std=c++14 -o binary code.cpp && cat input.txt | ./binary > output.txt 2>&1'], process.stdout, {
+                    name: 'cpp_container', HostConfig: {
+                        AutoRemove: true, NetworkMode: 'bridge', Binds: [
+                            `${__dirname}/Cpp/:/var/`
+                        ]
                     }
-                    if (stderr) {
-                        console.log(`stderr: ${stderr}`);
-                        return;
-                    }
-                    console.log(`stdout: ${stdout}`);
+                }).then(function (data, err) {
+                    //console.log(data)
                     fs.readFile('./cpp/output.txt', (error, data) => {
                         res.send(data);
                     });
-                }
-                )
+                })
+
+
 
             }
 
         })
     }
     else if (req.query.lang === 'Java') {
-        console.log('it\'s a java file')
+
         fs.writeFile('./java/input.txt', req.query.input, function (err) {
             if (err) {
                 console.log("There is some error in input file")
@@ -119,21 +120,17 @@ app.post('/', (req, res) => {
             }
             else {
 
-                exec("docker run docker run -v \"$PWD\":/usr/src/myapp -w /usr/src/myapp javasdk /bin/bash -c \"cd java && javac Main.java && cat input.txt | java Main > output.txt\"", (error, stdout, stderr) => {
-                    if (error) {
-                        console.log(`error: ${error.message}`);
-                        return;
+                docker.run('openjdk', ['bash', '-c', 'cd var && javac Main.java && cat input.txt | java Main > output.txt 2>&1'], process.stdout, {
+                    name: 'java_container', HostConfig: {
+                        AutoRemove: true, NetworkMode: 'bridge', Binds: [
+                            `${__dirname}/Java/:/var/`
+                        ]
                     }
-                    if (stderr) {
-                        console.log(`stderr: ${stderr}`);
-                        return;
-                    }
-                    console.log(`stdout: ${stdout}`);
-                    fs.readFile('./java/output.txt', (error, data) => {
+                }).then(function (data, err) {
+                    fs.readFile('./Java/output.txt', (error, data) => {
                         res.send(data);
                     });
-                }
-                )
+                })
 
             }
 

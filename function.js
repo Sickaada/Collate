@@ -1,32 +1,56 @@
 const express = require('express')
 const cors = require('cors')
 const fs = require('fs')
-const { exec } = require('child_process')
 var bodyParser = require('body-parser')
-const fs = require('fs')
-const app = express()
+const myfunc = require('./function.js')
+const app = express();
 app.use(cors())
 app.use(bodyParser.json())
+var Docker = require('dockerode');
+const { Volume, Container } = require('dockerode')
+
+var docker = new Docker({
+    socketPath: '/var/run/docker.sock'
+});
 
 
-
-
-function myfunc(lang,){
-    fs.writeFile(`./${lang}/input.txt`,req.query.input,function(err){
-        if (err){
+function common(lang,img_name,run_cmd, input, code) {
+    
+    fs.writeFile(`./${lang}/input.txt`, input, function (err) {
+        if (err) {
             res.status(500)
         }
     })
-    fs.writeFile(`./${lang}/code.py`,req.body.code, function(err){
-        if (err){
+    fs.writeFile(`./${lang}/code.py`, code, function (err) {
+        if (err) {
             res.status(500)
         }
         else {
-            exec("docker run --volume=/Users/madhur/Desktop/projects/untitled folder/Collate:/usr/src/app pythonimage /bin/bash -c \"cd /usr/src/app && cat input.txt | python3 code.py > output.txt\"", (error, stdout, stderr) => {
-                   
-                if (error) {
-                    console.log(`error: ${error.message}`);
-                    return;
+            
+            docker.run(img_name, run_cmd, process.stdout, {
+                name: 'image__container', HostConfig: {
+                    AutoRemove: true, NetworkMode: 'bridge', Binds: [
+                        `${__dirname}/${lang}/:/var/`
+                    ]
                 }
+            }, function (err, data, container) {
+                console.log(err)
+
+            });
+            // docker.run('python', ['bash', '-c', 'cd var && cat input.txt | python code.py > output.txt 2>&1'], process.stdout, {
+            //                 name: 'python_container', HostConfig: {
+            //                     AutoRemove: true, NetworkMode: 'bridge', Binds: [
+            //                         `${__dirname}/python/:/var/`
+            //                     ]
+            //                 }
+            //             }, function (err, data, container) {
+            //                 console.log(err)
+        
+            //             });
+
         }
-    })}
+    })
+};
+
+module.exports = { common };
+
