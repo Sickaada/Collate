@@ -74,7 +74,7 @@ function setvalue() {
     });
     console.log("this is the selected language")
     if (localStorage.getItem('lang') === 'C++') {
-        localStorage.setItem('lang', 'Cpp')
+        localStorage.setItem('lang', 'Cpp') // changed from C++ to Cpp because of reading error during post request
         console.log(localStorage.getItem('lang'))
     }
 
