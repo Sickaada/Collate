@@ -1,19 +1,13 @@
 # SyntaxError
 
-# WARNING:
-
-Right now, the paths are hard-coded. You need to change them to run it on your machine!
-
 # STEPS TO USE IT:
-
-Install Docker on your machine
 
 ## Setting up server
 
     Run following commands
-      1. docker pull python
-      2. docker pull gcc
-      3. docker pull openjdk
+      1. docker pull python:latest
+      2. docker pull gcc:4.9
+      3. docker pull openjdk:latest
       4. npm install
       5. npm run watch
 
