@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/79050141-6868-4bcc-82ca-979f3d36df83/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/collate",
+    "appService.deploySubpath": "."
+}
