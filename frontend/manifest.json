@@ -19,6 +19,6 @@
     },
     "permissions" : ["tabs"],
     "icons": {
-        "128" : "logo.png"
+        "128" : "favicon.png"
     }
 }
