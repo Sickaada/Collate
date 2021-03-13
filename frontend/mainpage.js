@@ -34,7 +34,7 @@ function pythonClick() {
     python.style.backgroundColor = "#232b41";
     python.style.color = "#2da2e7";
     python.style.fontWeight = "bolder";
-    
+
     cpp.style.color = "#FFFFFF";
     java.style.color = '#FFFFFF';
 
@@ -64,6 +64,7 @@ function javaClick() {
 function setvalue() {
 
     localStorage.setItem("code", document.getElementById('inputtext').value)
+    console.log()
     localStorage.setItem('input', document.getElementById('input').value)
     var data = JSON.stringify({ "code": localStorage.getItem("code") });
 
@@ -82,9 +83,9 @@ function setvalue() {
         console.log(localStorage.getItem('lang'))
     }
 
-    xhr.open("POST", "http://localhost:4000/?lang=" + localStorage.getItem("lang") + "&input=" + encodeURIComponent(localStorage.getItem("input")));
+    xhr.open("POST", "http://52.172.170.205:4000/?lang=" + localStorage.getItem("lang") + "&input=" + encodeURIComponent(localStorage.getItem("input")));
     xhr.setRequestHeader("Content-Type", "application/json");
-
+    console.log("heheh")
     xhr.send(data);
 
 }
