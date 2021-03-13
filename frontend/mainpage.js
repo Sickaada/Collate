@@ -83,7 +83,7 @@ function setvalue() {
         console.log(localStorage.getItem('lang'))
     }
 
-    xhr.open("POST", "http://localhost:4000/?lang=" + localStorage.getItem("lang") + "&input=" + encodeURIComponent(localStorage.getItem("input")));
+    xhr.open("POST", "http://52.172.170.205:4000/?lang=" + localStorage.getItem("lang") + "&input=" + encodeURIComponent(localStorage.getItem("input")));
     xhr.setRequestHeader("Content-Type", "application/json");
     console.log("heheh")
     xhr.send(data);
