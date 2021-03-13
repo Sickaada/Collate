@@ -1,23 +1,29 @@
+var python = document.getElementById("pythonButton")
+var cpp = document.getElementById("cppButton")
+var java = document.getElementById("javaButton")
+var reset = document.getElementById("resetBtn")
+var run = document.getElementById("runBtn")
 window.onload = function () {
     var a = localStorage.getItem("lang");
     document.getElementById("inputtext").value = localStorage.getItem("code");
     if (a === 'Python') { pythonClick() }
     // else if (a === 'C++') { cppClick() }
     else if (a === "Java") { javaClick() }
-    document.getElementById("pythonButton").addEventListener("click", pythonClick);
 
-    document.getElementById("cppButton").addEventListener("click", cppClick);
-    document.getElementById("javaButton").addEventListener("click", javaClick);
-    document.getElementById("resetButton").addEventListener("click", resetinput);
-    document.getElementById("runButton").addEventListener("click", setvalue);
+    python.addEventListener("click", pythonClick);
+    cpp.addEventListener("click", cppClick);
+    java.addEventListener("click", javaClick);
+    reset.addEventListener("click", resetinput);
+    run.addEventListener("click", setvalue);
+
 }
 
 function acceptinput() {
     var input = document.getElementById("inputtext").text;
-
 }
 
 function resetinput() {
+    console.log("hey")
     document.getElementById("inputtext").value = "";
 }
 
@@ -25,36 +31,30 @@ function resetinput() {
 
 function pythonClick() {
     localStorage.setItem('lang', 'Python')
-    document.getElementById("cppButton").style.backgroundColor = "#ffffff";
-    document.getElementById("pythonButton").style.backgroundColor = "#ff6700";
-    document.getElementById("javaButton").style.backgroundColor = "#ffffff";
+    python.style.backgroundColor = "#232b41";
+    python.style.color = "#2da2e7";
+    cpp.style.color = "#FFFFFF";
+    java.style.color = '#FFFFFF';
 
-    document.getElementById("cppButton").style.color = "#575757";
-    document.getElementById("pythonButton").style.color = "#ffffff";
-    document.getElementById("javaButton").style.color = "#575757";
+
 
 }
 
 function cppClick() {
     localStorage.setItem('lang', 'C++')
-    document.getElementById("cppButton").style.backgroundColor = "#ff6700";
-    document.getElementById("pythonButton").style.backgroundColor = "#ffffff";
-    document.getElementById("javaButton").style.backgroundColor = "#ffffff";
-
-    document.getElementById("cppButton").style.color = "#ffffff";
-    document.getElementById("pythonButton").style.color = "#575757";
-    document.getElementById("javaButton").style.color = "#575757";
+    cpp.style.backgroundColor = "#232b41";
+    cpp.style.color = "#2da2e7";
+    python.style.color = "#FFFFFF";
+    java.style.color = '#FFFFFF';
 }
 
 function javaClick() {
     localStorage.setItem('lang', 'Java')
-    document.getElementById("cppButton").style.backgroundColor = "#ffffff";
-    document.getElementById("pythonButton").style.backgroundColor = "#ffffff";
-    document.getElementById("javaButton").style.backgroundColor = "#ff6700";
+    java.style.backgroundColor = "#232b41";
+    java.style.color = "#2da2e7";
+    python.style.color = "#FFFFFF";
+    cpp.style.color = '#FFFFFF';
 
-    document.getElementById("cppButton").style.color = "#575757";
-    document.getElementById("pythonButton").style.color = "#575757";
-    document.getElementById("javaButton").style.color = "#ffffff";
 }
 
 function setvalue() {
@@ -69,10 +69,10 @@ function setvalue() {
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
             document.getElementById('outputtext').value = this.responseText;
-            
+
         }
     });
-    console.log("this is the selected language")
+
     if (localStorage.getItem('lang') === 'C++') {
         localStorage.setItem('lang', 'Cpp') // changed from C++ to Cpp because of reading error during post request
         console.log(localStorage.getItem('lang'))

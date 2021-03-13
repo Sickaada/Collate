@@ -1,5 +1,3 @@
-
-
 var lastLanguage = "C++";
 var code = "";
 
