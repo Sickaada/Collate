@@ -128,6 +128,15 @@ body {
   height: 100%;
   padding: 1%;
 }
+#outputtext {
+  width: 100%;
+  resize: none;
+  color: white;
+  border: 1px solid rgb(242, 242, 242);
+  background-color: #2d344d;
+  height: 100%;
+  padding: 1%;
+}
 
 .input {
   width: 100%;
