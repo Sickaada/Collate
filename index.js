@@ -39,27 +39,27 @@ app.post('/', (req, res) => {
         myfunc.execCode('Python', 'py', 'python', ['bash', '-c', 'cd var && cat input.txt | python code.py > output.txt 2>&1'], req.query.input, req.body.code, (data) => {
             fs.readFile('./Python/output.txt', (error, data) => {
                 res.send(data);
-                fs.unlinkSync('./python/output.txt')
+                
             })
         }
         )
     }
     else if (req.query.lang === 'Cpp') {
 
-        myfunc.execCode('Cpp', 'cpp', 'gcc:4.9', ['bash', '-c', 'cd var && g++ -std=c++14 -o binary code.cpp && cat input.txt | ./binary > output.txt 2>&1'], req.query.input, req.body.code, (data)=>{
-                fs.readFile('./cpp/output.txt', (error, data) => {
-                    res.send(data)
-                });
-            })
-       
+        myfunc.execCode('Cpp', 'cpp', 'gcc:4.9', ['bash', '-c', 'cd var && g++ -std=c++14 -o binary code.cpp && cat input.txt | ./binary > output.txt 2>&1'], req.query.input, req.body.code, (data) => {
+            fs.readFile('./cpp/output.txt', (error, data) => {
+                res.send(data)
+            });
+        })
+
     }
     else if (req.query.lang === 'Java') {
-        myfunc.execCode('Java', 'java', ['bash', '-c', 'cd var && javac Main.java && cat input.txt | java Main > output.txt 2>&1'], req.query.input, req.body.code, (data)=>{
-                fs.readFile('./Java/output.txt', (error, data) => {
-                    res.send(data);
-                    fs.unlinkSync('./Java/output.txt')
-                });
-            })
+        myfunc.execCode('Java', 'java', 'openjdk', ['bash', '-c', 'cd var && javac Main.java && cat input.txt | java Main > output.txt 2>&1'], req.query.input, req.body.code, (data) => {
+            fs.readFile('./Java/output.txt', (error, data) => {
+                res.send(data);
+                
+            });
+        })
     }
 })
 

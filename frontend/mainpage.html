@@ -6,9 +6,10 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
      <link rel="stylesheet" href="mainpage.css">
+     <script type="text/javascript" src="script.js"></script>
      <title>Code Editor</title> 
      <div class=top>
-     <h2 class="topp">Collate</h2>
+     <h2 class="logo">Collate</h2>
     </div>
     
  </head>
@@ -17,39 +18,39 @@
      
      
     <div class="editor">
-        <div class="editor__wrapper">
+        <div class="editorwrapper">
             <table width="50%">
                 <tr>
+
                     
-                    <td><button class="btn" id="pythonButton">Python</button></td>
+                    <td><button class="btn" id="pythonButton">PYTHON</button></td>
                     <td><button class="btn" id="cppButton">C ++</button></td>
-                    <td><button class="btn" id="javaButton">Java 8</button></td>
+                    <td><button class="btn" id="javaButton">JAVA 8</button></td>
                 </tr>
             </table>
-            <div class="editor__body">
-                <div id="editorCode" class="editor__code" >
+            <div class="editorBody">
+                <div id="editorCode" class="editorCode" >
                     <textarea id="inputtext" class="inputtext"></textarea>
                 </div>
             </div>
-            <div class="editor__footer">
-                
-               
-                <div class="editor__footer--right">
+            
+            <div class="editorfooter">
+                <div class="editorFooterRight"></div>
                     <div class="input">
                         <textarea id="input" placeholder="Enter your input"></textarea>
                     </div>
-                    <div class="editor__console">
-                        <textarea class="editor__console-logs" id="outputtext"></textarea>       
+                    <div class="editorConsole">
+                        <textarea class="editorConsoleLogs" id="input" placeholder="Output will be shown here"></textarea>       
                     </div>
                     
                 </div>
             </div>
             <br>
-            <div class="editor__footer--left">
+            <div class="editorFooterLeft">
                 <table>
                     <tr>
-                        <td> <button class="editor__btn editor__run" id="runButton">Run</button> </td>
-                        <td><button class="editor__btn editor__reset" id="resetButton">Clear</button></td>
+                        <td> <button class="editorBtn editorrun" id="runBtn">Run</button> </td>
+                        <td><button class="editorBtn editorreset" id="resetBtn">Reset</button></td>
                     </tr>
                 </table>
             </div>
