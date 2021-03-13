@@ -33,6 +33,8 @@ function pythonClick() {
     localStorage.setItem('lang', 'Python')
     python.style.backgroundColor = "#232b41";
     python.style.color = "#2da2e7";
+    python.style.fontWeight = "bolder";
+    
     cpp.style.color = "#FFFFFF";
     java.style.color = '#FFFFFF';
 
@@ -44,6 +46,7 @@ function cppClick() {
     localStorage.setItem('lang', 'C++')
     cpp.style.backgroundColor = "#232b41";
     cpp.style.color = "#2da2e7";
+    cpp.style.fontWeight = "bolder"
     python.style.color = "#FFFFFF";
     java.style.color = '#FFFFFF';
 }
@@ -52,6 +55,7 @@ function javaClick() {
     localStorage.setItem('lang', 'Java')
     java.style.backgroundColor = "#232b41";
     java.style.color = "#2da2e7";
+    java.style.fontWeight = "bolder"
     python.style.color = "#FFFFFF";
     cpp.style.color = '#FFFFFF';
 

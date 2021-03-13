@@ -1,85 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 .heading {
   margin-left: 100px;
   color: rgb(16, 17, 17);
 }
 h1 {
-  color: #ff6700;
-  font-family: 'Satisfy', cursive;
+  color: white;
+  font-family: "Satisfy", cursive;
 }
 body {
-  background-color: white;
+  background-color: #252b42;
 }
 
 #languages {
-  background-color: #ff6700;
-  color:white;
-  border:1px #ff6700;
+  background-color: #2d344d;
+  color: white;
+  border: 1px solid white;
   border-radius: 4px;
   height: 2em;
-  width: 9em;
+  width: 10em;
+}
+#languages:hover {
+  background-color: #232b41 !important;
+  color: #2da2e7 !important;`
 }
 
-.inputText{
+.inputText {
   box-shadow: 0 0 10px #e6e6e6;
   background-color: #f2f2f2;
-  
 }
 
 #inputText {
-  height:100px;
+  height: 100px;
   width: 100%;
   resize: none;
-  border:2px ;
+  border: 2px;
   border-radius: 3px;
-  
 }
 
-#resetButton{
-  background-color: #ff6700;
+#resetButton {
+  background-color: #2d344d;
   color: #ffffff;
-  border:1px #ff6700;
+  border: 1px solid #ffffff;
   height: 2em;
   width: 5em;
-  border-radius:4px;
-  
+  border-radius: 4px;
+}
+#resetButton:hover {
+  background-color: #232b41 !important;
+  color: #2da2e7 !important;
 }
 
-#submitButton{
-  background-color: #ff6700;
+#submitButton {
+  background-color: #2d344d;
   color: #ffffff;
-  border:1px #ff6700;
+  border: 1px solid white;
   border-radius: 4px;
   height: 2em;
   width: 5em;
-  
+}
+#submitButton:hover {
+  background-color: #232b41 !important;
+  color: #2da2e7 !important;
 }
 
-#editButton{
-  
-  background-color: #ff6700;
+#editButton {
+  background-color: #2d344d;
   color: #ffffff;
-  border:1px #ff6700;
+  border: 1px solid white;
   height: 2em;
-  width: 5em;  
-  border-radius: 4px;  
+  width: 5em;
+  border-radius: 4px;
   float: right;
 }
-
-.btn_centre{
-  margin-left:120px ;
-  
+#editButton:hover {
+  background-color: #232b41 !important;
+  color: #2da2e7 !important;
 }
 
-.outputText{
+.btn_centre {
+  margin-left: 120px;
+}
+
+.outputText {
   box-shadow: 0 0 10px #e6e6e6;
-  background-color: rgb(242,242,242);
+  background-color: rgb(242, 242, 242);
 }
 
 #outputText {
-  height:100px;
+  height: 100px;
   width: 100%;
   resize: none;
-  border:2px;
+  border: 2px;
   border-radius: 3px;
 }
