@@ -14,7 +14,7 @@ var docker = new Docker({
 });
 
 
-async function execCode(lang, ext, img_name, run_cmd, input, code,callback) {
+async function execCode(lang, ext, img_name, run_cmd, input, code, rn, callback) {
 
     fs.writeFile(`./${lang}/input.txt`, input, function (err) {
         if (err) {
@@ -28,7 +28,7 @@ async function execCode(lang, ext, img_name, run_cmd, input, code,callback) {
         else {
 
             docker.run(img_name, run_cmd, process.stdout, {
-                name: 'image__container', HostConfig: {
+                name: `image__container${rn}`, HostConfig: {
                     AutoRemove: true, NetworkMode: 'bridge', Binds: [
                         `${__dirname}/${lang}/:/var/`
                     ]

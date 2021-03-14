@@ -35,8 +35,10 @@ var docker = new Docker({
 
 
 app.post('/', (req, res) => {
+
+    randomNumber = Math.floor(Math.random() * 100)
     if (req.query.lang === 'Python') {
-        myfunc.execCode('Python', 'py', 'python', ['bash', '-c', 'cd var && cat input.txt | python code.py > output.txt 2>&1'], req.query.input, req.body.code, (data) => {
+        myfunc.execCode('Python', 'py', 'python', ['bash', '-c', 'cd var && cat input.txt | python code.py > output.txt 2>&1'], req.query.input, req.body.code, randomNumber,(data) => {
             fs.readFile('./Python/output.txt', (error, data) => {
                 res.send(data);
 
