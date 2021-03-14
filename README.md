@@ -6,8 +6,8 @@ Collate is a chrome extension which will detect the language you select and exec
 ## Overview
 Currently, to execute any piece of code you find over the web, you change the tabs, search for online compilers or copy it and run on your machine.
 No more of this now! </br>
-Collate is a chrome extension first of its kind. What you need to do is select the code snippet you want to run and press  </br> "Ctrl/Cmd + B".</br>
-In case you want to change the selected code, we have provided a code editor too. 
+Collate is a chrome extension, the first of its kind. All you need to do is select the code snippet you want to run and press  </br> "Ctrl/Cmd + B".</br>
+In case you want to modify the selected code, we have provided a code editor too. 
 
 ### Supported Languages
 Collate currently supports following languages:
@@ -16,12 +16,12 @@ Collate currently supports following languages:
 * JAVA 8
 
 ## Dependencies
-You need to have [Docker](https://www.docker.com/) and [Node](https://nodejs.org/en/)14.16.0 in your machine. 
+You need to have [Docker](https://www.docker.com/) and [Node](https://nodejs.org/en/) v14.16.0 in your machine.</br>
 Here are the installation guides for Docker:
 * [Linux](https://runnable.com/docker/install-docker-on-linux)
 * [MacOS](https://docs.docker.com/docker-for-mac/install/)
-* [Windows](https://docs.docker.com/docker-for-windows/install/)
-Here are the installation guides for Node:
+* [Windows](https://docs.docker.com/docker-for-windows/install/)</br>
+* Here are the installation guides for Node:
 * [Linux](https://nodejs.org/en/download/)
 * [MacOS](https://nodejs.org/en/download/)
 * [Windows](https://nodejs.org/en/download/)
@@ -44,7 +44,7 @@ Assuming you have [Dependencies](#Dependencies) installed, run the following com
     ```bash 
     $ cd Collate
     $ npm install
-4. Navigate to [this file](https://github.com/silentC1C4D4/Collate/blob/master/frontend/mainpage.js) and change your preferred IP address.</br>
+4. Navigate to [./frontend/mainpage.js](https://github.com/silentC1C4D4/Collate/blob/master/frontend/mainpage.js) on line 86 change the address to your preferred one.</br>
     Example:
      ```http://52.172.170.205:4000/?lang=``` to ```http://localhost:4000/?lang=```
 6. Start the server.
@@ -52,7 +52,7 @@ Assuming you have [Dependencies](#Dependencies) installed, run the following com
     $ npm run watch
  
 
-### Setting up frontend
+### Setting up Chrome Extension
 1. You need to install chrome extension locally.
     1. Navigate to [chrome://extensions/](chrome://extensions)
     2. Turn on Developer mode
@@ -60,7 +60,7 @@ Assuming you have [Dependencies](#Dependencies) installed, run the following com
     4. Browse to ./frontend
 
 ### Note
-If you want to run a Java code, the class name must be Main.
+If you want to run a Java code, the class name must be "Main".
 
 ### License
 This project is under [MIT License](./LICENSE)
