@@ -21,7 +21,8 @@ Here are the installation guides for Docker:
 * [Linux](https://runnable.com/docker/install-docker-on-linux)
 * [MacOS](https://docs.docker.com/docker-for-mac/install/)
 * [Windows](https://docs.docker.com/docker-for-windows/install/)</br>
-* Here are the installation guides for Node:
+
+Here are the installation guides for Node:
 * [Linux](https://nodejs.org/en/download/)
 * [MacOS](https://nodejs.org/en/download/)
 * [Windows](https://nodejs.org/en/download/)
