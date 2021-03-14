@@ -23,8 +23,8 @@ While running the JAVA code, you need to keep in mind to set class name as "Main
     3. Go to " Load Unpacked "
     4. Browse to ./frontend
 
-<p>After doing the aforementioned steps, navigate to ./frontend/mainpage.js and on line 86, change the address to </br>
-```http:localhost:4000\...```</p>
+After doing the aforementioned steps, navigate to ./frontend/mainpage.js and on line 86, change the address to ``` http://localhost:4000/...```
+
 
 ### You are good to go my friend!
 
