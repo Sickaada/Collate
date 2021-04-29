@@ -2,6 +2,14 @@ class Main
 {
 public static void main(String args[])
 {
-System.out.print("My")
+long ans = 0;
+while(true)
+{
+if(ans%10000000 == 0)
+{
+System.out.println(ans+1);
+}
+++ans;
+}
 }
 }

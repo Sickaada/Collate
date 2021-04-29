@@ -38,7 +38,7 @@ app.post('/', (req, res) => {
 
     randomNumber = Math.floor(Math.random() * 100)
     if (req.query.lang === 'Python') {
-        myfunc.execCode(randomNumber,'Python', 'py', 'python', ['bash', '-c', 'cd var && cat input.txt | python code.py > output.txt 2>&1'], req.query.input,req.body.code,(data) => {
+        myfunc.execCode(randomNumber,'Python', 'py', 'python', ['bash', '-c', 'cd var && cat input.txt | timeout 5 python code.py > output.txt 2>&1'], req.query.input,req.body.code,(data) => {
             fs.readFile('./Python/output.txt', (error, data) => {
                 res.send(data);
 
@@ -47,7 +47,7 @@ app.post('/', (req, res) => {
         )
     }
     else if (req.query.lang === 'Cpp') {
-        myfunc.execCode(randomNumber,'cpp', 'cpp', 'gcc:4.9', ['bash', '-c', 'cd var && g++ -std=c++14 -o binary code.cpp > output.txt 2>&1 && cat input.txt | ./binary > output.txt'], req.query.input, req.body.code, (data) => {
+        myfunc.execCode(randomNumber,'cpp', 'cpp', 'gcc:4.9', ['bash', '-c', 'cd var && g++ -std=c++14 -o binary code.cpp > output.txt 2>&1 && cat input.txt | timeout 5 ./binary > output.txt'], req.query.input, req.body.code, (data) => {
             fs.readFile('./cpp/output.txt', (error, data) => {
                 res.send(data)
             });
@@ -55,7 +55,7 @@ app.post('/', (req, res) => {
 
     }
     else if (req.query.lang === 'Java') {
-        myfunc.execCode(randomNumber,'Java', 'java', 'openjdk', ['bash', '-c', 'cd var && javac code.java > output.txt 2>&1 && cat input.txt | java Main > output.txt'], req.query.input, req.body.code, (data) => {
+        myfunc.execCode(randomNumber,'Java', 'java', 'openjdk', ['bash', '-c', 'cd var && javac code.java > output.txt 2>&1 && cat input.txt | timeout 5 java Main > output.txt'], req.query.input, req.body.code, (data) => {
             fs.readFile('./Java/output.txt', (error, data) => {
                 res.send(data);
 
