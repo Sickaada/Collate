@@ -1,1 +1,4 @@
-xx82730734203802cchwkdchec326
+code.java:5: error: ';' expected
+System.out.print("My")
+                      ^
+1 error

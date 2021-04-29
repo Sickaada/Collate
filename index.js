@@ -47,7 +47,7 @@ app.post('/', (req, res) => {
         )
     }
     else if (req.query.lang === 'Cpp') {
-        myfunc.execCode(randomNumber,'cpp', 'cpp', 'gcc:4.9', ['bash', '-c', 'cd var && g++ -std=c++14 -o binary code.cpp && cat input.txt | ./binary > output.txt 2>&1'], req.query.input, req.body.code, (data) => {
+        myfunc.execCode(randomNumber,'cpp', 'cpp', 'gcc:4.9', ['bash', '-c', 'cd var && g++ -std=c++14 -o binary code.cpp > output.txt 2>&1 && cat input.txt | ./binary > output.txt'], req.query.input, req.body.code, (data) => {
             fs.readFile('./cpp/output.txt', (error, data) => {
                 res.send(data)
             });
@@ -55,7 +55,7 @@ app.post('/', (req, res) => {
 
     }
     else if (req.query.lang === 'Java') {
-        myfunc.execCode(randomNumber,'Java', 'java', 'openjdk', ['bash', '-c', 'cd var && javac code.java && cat input.txt | java Main > output.txt 2>&1'], req.query.input, req.body.code, (data) => {
+        myfunc.execCode(randomNumber,'Java', 'java', 'openjdk', ['bash', '-c', 'cd var && javac code.java > output.txt 2>&1 && cat input.txt | java Main > output.txt'], req.query.input, req.body.code, (data) => {
             fs.readFile('./Java/output.txt', (error, data) => {
                 res.send(data);
 
