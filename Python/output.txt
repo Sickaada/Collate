@@ -1,1 +1,4 @@
-hey
+  File "/var/code.py", line 1
+    ;
+    ^
+SyntaxError: invalid syntax

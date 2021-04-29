@@ -1,4 +1,4 @@
-var lastLanguage = "C++";
+var lastLanguage = "Cpp";
 var code = "";
 
 chrome.runtime.onMessage.addListener(
@@ -207,7 +207,7 @@ function find(pred) {
 
 
 function Detect(code) {
-	var languages = ["C++", "Java", "Python"];
+	var languages = ["Cpp", "Java", "Python"];
 	var wordsIfNotPython = splitIntoWords(code, 0);
 	var wordsIfPython = splitIntoWords(code, 2);
 	var prediction_1 = predict(wordsIfNotPython);

@@ -7,7 +7,7 @@ window.onload = function () {
     var a = localStorage.getItem("lang");
     document.getElementById("inputtext").value = localStorage.getItem("code");
     if (a === 'Python') { pythonClick() }
-    // else if (a === 'C++') { cppClick() }
+    else if (a === 'Cpp') { cppClick() }
     else if (a === "Java") { javaClick() }
 
     python.addEventListener("click", pythonClick);
@@ -23,7 +23,6 @@ function acceptinput() {
 }
 
 function resetinput() {
-    console.log("hey")
     document.getElementById("inputtext").value = "";
 }
 
@@ -43,7 +42,7 @@ function pythonClick() {
 }
 
 function cppClick() {
-    localStorage.setItem('lang', 'C++')
+    localStorage.setItem('lang', 'Cpp')
     cpp.style.backgroundColor = "#232b41";
     cpp.style.color = "#2da2e7";
     cpp.style.fontWeight = "bolder"
@@ -80,7 +79,6 @@ function setvalue() {
 
     if (localStorage.getItem('lang') === 'C++') {
         localStorage.setItem('lang', 'Cpp') // changed from C++ to Cpp because of reading error during post request
-        console.log(localStorage.getItem('lang'))
     }
 
     xhr.open("POST", "http://localhost:4000/?lang=" + localStorage.getItem("lang") + "&input=" + encodeURIComponent(localStorage.getItem("input")));
