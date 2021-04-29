@@ -6,9 +6,21 @@
 h1 {
   color: white;
   font-family: "Satisfy", cursive;
+  padding: 0rem 0.8rem;
 }
 body {
   background-color: #252b42;
+}
+.box-all{
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  
+}
+.top-btns{
+  display: flex;
+  justify-content: space-between;
 }
 
 #languages {
@@ -17,7 +29,7 @@ body {
   border: 1px solid white;
   border-radius: 4px;
   height: 2em;
-  width: 10em;
+  
 }
 #languages:hover {
   background-color: #232b41 !important;
@@ -27,6 +39,7 @@ body {
 .inputText {
   box-shadow: 0 0 10px #e6e6e6;
   background-color: #f2f2f2;
+  height: 100px;
 }
 
 #inputText {
@@ -35,6 +48,7 @@ body {
   resize: none;
   border: 2px;
   border-radius: 3px;
+  outline: none;
 }
 
 #resetButton {
@@ -78,18 +92,21 @@ body {
 }
 
 .btn_centre {
-  margin-left: 120px;
+  margin:auto;
 }
 
 .outputText {
   box-shadow: 0 0 10px #e6e6e6;
   background-color: rgb(242, 242, 242);
+  height: 100px;
 }
 
 #outputText {
   height: 100px;
   width: 100%;
   resize: none;
-  border: 2px;
-  border-radius: 3px;
+  border: 0px;
+ outline:none;
+ margin:auto;
+  
 }
