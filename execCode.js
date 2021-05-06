@@ -1,11 +1,9 @@
 const express = require('express')
 const cors = require('cors')
 const fs = require('fs')
-var bodyParser = require('body-parser')
 
 const app = express();
 app.use(cors())
-app.use(bodyParser.json())
 var Docker = require('dockerode');
 const { Volume, Container } = require('dockerode')
 
@@ -19,12 +17,12 @@ async function execCode(randomNumber, lang, ext, img_name, run_cmd, input, code,
 
     fs.writeFile(`./${lang}/input.txt`, input, function (err) {
         if (err) {
-            //res.status(500)
+            res.status(500)
         }
     })
     fs.writeFile(`./${lang}/code.${ext}`, code, function (err) {
         if (err) {
-            //res.status(500)
+            res.status(500)
         }
         else {
 
