@@ -35,7 +35,6 @@ async function execCode(randomNumber, lang, ext, img_name, run_cmd, input, code,
             }).then(function (err, data, container) {
                 fs.readFile(`./${lang}/output.txt`, (error, data) => {
                     callback(data)
-
                 });
 
             })

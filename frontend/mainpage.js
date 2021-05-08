@@ -63,7 +63,6 @@ function javaClick() {
 function setvalue() {
 
     localStorage.setItem("code", document.getElementById('inputtext').value)
-    console.log()
     localStorage.setItem('input', document.getElementById('input').value)
     var data = JSON.stringify({ "code": localStorage.getItem("code") });
 
@@ -77,9 +76,9 @@ function setvalue() {
         }
     });
 
-    if (localStorage.getItem('lang') === 'C++') {
-        localStorage.setItem('lang', 'Cpp') // changed from C++ to Cpp because of reading error during post request
-    }
+    // if (localStorage.getItem('lang') === 'C++') {
+    //     localStorage.setItem('lang', 'Cpp') // changed from C++ to Cpp because of reading error during post request
+    // }
 
     xhr.open("POST", "http://localhost:4000/?lang=" + localStorage.getItem("lang") + "&input=" + encodeURIComponent(localStorage.getItem("input")));
     xhr.setRequestHeader("Content-Type", "application/json");

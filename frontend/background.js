@@ -3,29 +3,23 @@ var code = "";
 
 chrome.runtime.onMessage.addListener(
 	function (request, sender, sendResponse) {
-		console.log(sender.tab ?
-			"from a content script:" + sender.tab.url :
-			"from the extension");
 		// code fetched from trial.js
 		if (request.greeting) {
-			console.log(request.greeting);
+
 			code = request.greeting
 			var result = Detect(request.greeting);
 			lastLanguage = result;
 			localStorage.setItem("lang", result)
-			
+
 			localStorage.setItem("code", request.greeting)
-			console.log(result);
+
 		}
 		// lastLanguage is the predicted language
 		if (request.fetch) {
 			var views = chrome.extension.getViews({
 				type: "popup"
 			});
-			console.log(views.length);
-			console.log(lastLanguage);
 			for (i = 0; i < views.length; i++) {
-				// views[i].document.getElementById("outputText").innerHTML = lastLanguage;
 				views[i].document.getElementById("languages").value = lastLanguage;
 			}
 		}
@@ -61,14 +55,13 @@ function max(a, b) {
 	return ((a > b) ? a : b);
 }
 function splitIntoWords(code, language) {
-	// console.log(code);
+
 	var listOfWords = [];
 	var currentWord = "";
 	for (i = 0; i < code.length; i++) {
-		// console.log(currentWord + "                " + code[i]);
-		// console.log("here");
+
 		if (isWeird(code.charCodeAt(i)) || code[i] == ' ' || code[i] == '\n' || code[i] == '\t') {
-			// console.log("here");
+
 			if (currentWord != "") {
 				listOfWords.push(currentWord);
 				currentWord = "";
@@ -76,7 +69,7 @@ function splitIntoWords(code, language) {
 			continue;
 		}
 		if (code[i] == '\"') {
-			// console.log("here");
+
 			++i;
 			while (code[i] != '\"' && i < code.length) {
 				++i;
@@ -94,7 +87,7 @@ function splitIntoWords(code, language) {
 			continue;
 		}
 		if (isSymbol(code.charCodeAt(i))) {
-			// console.log("here");
+			
 			if (currentWord == "" || isSymbol(currentWord.charCodeAt(currentWord.length - 1))) {
 				currentWord += code[i];
 			}
@@ -105,7 +98,7 @@ function splitIntoWords(code, language) {
 			}
 		}
 		else {
-			// console.log("here");
+
 			if (currentWord == "" || !isSymbol(currentWord.charCodeAt(currentWord.length - 1))) {
 				currentWord += code[i];
 			}
