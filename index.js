@@ -2,12 +2,11 @@
 const express = require('express')
 const cors = require('cors')
 const fs = require('fs')
-
-var bodyParser = require('body-parser')
+const dotenv = require('dotenv')
 const myfunc = require('./execCode.js')
 const app = express();
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json())
 var Docker = require('dockerode');
 const { Volume, Container } = require('dockerode')
 

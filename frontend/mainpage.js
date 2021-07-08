@@ -76,11 +76,8 @@ function setvalue() {
         }
     });
 
-    // if (localStorage.getItem('lang') === 'C++') {
-    //     localStorage.setItem('lang', 'Cpp') // changed from C++ to Cpp because of reading error during post request
-    // }
 
-    xhr.open("POST", "http://localhost:4000/?lang=" + localStorage.getItem("lang") + "&input=" + encodeURIComponent(localStorage.getItem("input")));
+    xhr.open("POST", process.env.baseURL + "?lang=" + localStorage.getItem("lang") + "&input=" + encodeURIComponent(localStorage.getItem("input")));
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
 

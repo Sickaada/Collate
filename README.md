@@ -1,14 +1,13 @@
-<h1 align="center">Collate</h1>
-<p align="center"><b>A chrome extension to execute code in 2 steps</b></p>
+# Collate
 
-Collate is a chrome extension which will detect the language of code snippet you select and execute it.
+Collate is a chrome extension which detects the language of a code snippet selected by the user and executes it.
 
 ## Overview
 
 Currently, to execute any piece of code you find over the web, you change the tabs, search for online compilers or copy it and run on your machine.
 No more of this now! </br>
 Collate is a chrome extension, the first of its kind. All you need to do is select the code snippet you want to run and press `"Ctrl/Cmd + B"`.
-In case you want to modify the selected code, we have provided a code editor too.
+If you want to modify the selected code, collate also comes with a simple code editor.
 
 ### Supported Languages
 
@@ -56,9 +55,8 @@ Assuming you have [Dependencies](#Dependencies) installed, run the following com
    $ cd Collate
    $ npm install
    ```
-4. Navigate to [./frontend/mainpage.js](https://github.com/silentC1C4D4/Collate/blob/master/frontend/mainpage.js) on line 86 change the address to your preferred one.</br>
-   Example:
-   `http://52.172.170.205:4000/?lang=` to `http://localhost:4000/?lang=`
+4. Copy the `.env.example` file and name it `.env` and update the values in it.
+
 5. Start the server.
 
    ```bash
@@ -86,14 +84,7 @@ Assuming you have [Dependencies](#Dependencies) installed, run the following com
    3. Go to "Load Unpacked"
    4. Browse to ./frontend
 
-### Upcoming tasks
-
-Instead of having different folders for each language, we are planning to create random file names with each request.
 
 ### Note
 
 If you want to run a Java code, the class name must be "Main".
-
-### License
-
-This project is under [MIT License](./LICENSE)
