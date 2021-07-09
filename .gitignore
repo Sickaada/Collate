@@ -11,3 +11,5 @@ Cpp/binary
 Cpp/code.cpp
 Java/Main.class
 Java/code.java
+.env
+package-lock.json

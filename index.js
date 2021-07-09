@@ -2,7 +2,7 @@
 const express = require('express')
 const cors = require('cors')
 const fs = require('fs')
-const dotenv = require('dotenv')
+const dotenv = require('dotenv').config()
 const myfunc = require('./execCode.js')
 const app = express();
 app.use(cors())
