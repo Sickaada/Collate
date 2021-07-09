@@ -17,12 +17,13 @@ async function execCode(randomNumber, lang, ext, img_name, run_cmd, input, code,
 
     fs.writeFile(`./${lang}/input.txt`, input, function (err) {
         if (err) {
-            res.status(500)
+            throw err;
         }
     })
     fs.writeFile(`./${lang}/code.${ext}`, code, function (err) {
         if (err) {
-            res.status(500)
+            
+            throw err;
         }
         else {
 

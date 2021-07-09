@@ -17,7 +17,7 @@
         "scripts": ["background.js"],
         "persistent": false
     },
-    "permissions" : ["tabs"],
+    "permissions" : ["tabs","notifications"],
     "icons": {
         "128" : "favicon.png"
     }
