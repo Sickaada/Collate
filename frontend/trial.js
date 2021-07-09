@@ -14,10 +14,10 @@ document.addEventListener("keydown", (e) => {
 
 function filterText(unfilteredString) {
     var filteredString = '';
-    for(i = 0; i<unfilteredString.length; i++){
-        if(unfilteredString.charCodeAt(i)>=32 && unfilteredString.charCodeAt(i)<=127) 
+    for (i = 0; i < unfilteredString.length; i++) {
+        if (unfilteredString.charCodeAt(i) >= 32 && unfilteredString.charCodeAt(i) <= 127)
             filteredString += unfilteredString[i];
-        else if(unfilteredString.charCodeAt(i)>=8 && unfilteredString.charCodeAt(i)<=13)
+        else if (unfilteredString.charCodeAt(i) >= 8 && unfilteredString.charCodeAt(i) <= 13)
             filteredString += unfilteredString[i];
     }
     return filteredString;
