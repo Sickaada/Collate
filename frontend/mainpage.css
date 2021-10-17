@@ -64,6 +64,16 @@ body {
   color: #2da2e7 !important;
 }
 
+.language-button {
+  background-color: #232b41;
+  font-weight: bolder;
+  color: #FFFFFF;
+}
+
+.language-button.active {
+  color: #2da2e7;
+}
+
 .editor {
   height: 100%;
   width: 100%;
