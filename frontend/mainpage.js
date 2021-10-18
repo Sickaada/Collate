@@ -1,18 +1,28 @@
-var python = document.getElementById("pythonButton")
-var cpp = document.getElementById("cppButton")
-var java = document.getElementById("javaButton")
-var reset = document.getElementById("resetBtn")
-var run = document.getElementById("runBtn")
+const buttons = [
+                    { id: 'pythonButton', lang: 'Python'},
+                    { id: 'cppButton', lang: 'Cpp'}, 
+                    { id: 'javaButton', lang: 'Java'}
+                ];
+const elements = {};
+const reset = document.getElementById("resetBtn")
+const run = document.getElementById("runBtn")
+
 window.onload = function () {
     var a = localStorage.getItem("lang");
     document.getElementById("inputtext").value = localStorage.getItem("code");
-    if (a === 'Python') { pythonClick() }
-    else if (a === 'Cpp') { cppClick() }
-    else if (a === "Java") { javaClick() }
 
-    python.addEventListener("click", pythonClick);
-    cpp.addEventListener("click", cppClick);
-    java.addEventListener("click", javaClick);
+    buttons.forEach(button => {
+        const element = document.getElementById(button.id)
+        elements[button.id] = element;
+        element.addEventListener("click", handleClick);
+    })
+
+    if (a) {
+        const activeId = buttons.filter(b => b.lang == a)[0].id;
+        elements[activeId].classList.add('active');
+    }
+    else { elements['pythonButton'].classList.add('active'); }
+
     reset.addEventListener("click", resetinput);
     run.addEventListener("click", setvalue);
 
@@ -26,38 +36,15 @@ function resetinput() {
     document.getElementById("inputtext").value = "";
 }
 
-
-
-function pythonClick() {
-    localStorage.setItem('lang', 'Python')
-    python.style.backgroundColor = "#232b41";
-    python.style.color = "#2da2e7";
-    python.style.fontWeight = "bolder";
-
-    cpp.style.color = "#FFFFFF";
-    java.style.color = '#FFFFFF';
-
-
-
-}
-
-function cppClick() {
-    localStorage.setItem('lang', 'Cpp')
-    cpp.style.backgroundColor = "#232b41";
-    cpp.style.color = "#2da2e7";
-    cpp.style.fontWeight = "bolder"
-    python.style.color = "#FFFFFF";
-    java.style.color = '#FFFFFF';
-}
-
-function javaClick() {
-    localStorage.setItem('lang', 'Java')
-    java.style.backgroundColor = "#232b41";
-    java.style.color = "#2da2e7";
-    java.style.fontWeight = "bolder"
-    python.style.color = "#FFFFFF";
-    cpp.style.color = '#FFFFFF';
-
+function handleClick(e) {
+    const clickId = e.target.id;
+    const lang = buttons.filter(button => button.id == clickId)[0].lang;
+    localStorage.setItem('lang', lang);
+    buttons.forEach( button => { 
+        const [element, elementId] = [elements[button.id], button.id];
+        if (element.classList.contains('active') && elementId !== clickId) {element.classList.remove('active')}
+        else if (element.classList.contains('active') == false && elementId == clickId) {element.classList.add('active')}
+    });
 }
 
 function setvalue() {
