@@ -42,7 +42,7 @@ Assuming you have [Dependencies](#Dependencies) installed, run the following com
 1. Clone this repository.
 
    ```bash
-   $ git clone https://github.com/silentC1C4D4/collate
+   $ git clone https://github.com/Sickaada/collate
    ```
 
 2. Pull these three images.

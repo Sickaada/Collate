@@ -1,7 +1,8 @@
 const buttons = [
                     { id: 'pythonButton', lang: 'Python'},
                     { id: 'cppButton', lang: 'Cpp'}, 
-                    { id: 'javaButton', lang: 'Java'}
+                    { id: 'javaButton', lang: 'Java'},
+                    { id: 'javaButton', lang: 'GoLang'}
                 ];
 const elements = {};
 const reset = document.getElementById("resetBtn")

@@ -26,7 +26,6 @@ function setvalue() {
 	});
 	if (localStorage.getItem('lang') === 'C++') {
 		localStorage.setItem('lang', 'Cpp')
-			(localStorage.getItem('lang'))
 	}
 
 
